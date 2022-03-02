@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from 'react-native'
-import { TextInput } from '@react-native-material/core'
+import { TextInput, Surface } from '@react-native-material/core'
 import {
   SelectDropDown,
   ButtonOnclick,
-  ListForm,
   InputDropDown,
-  Modall,
   ItemProduct,
 } from '../../components'
 import { CLIENT, PRODUCTS, UNIT_OF_MEASUREMENT } from '../../constants'
-import { Container, View, TitleValue, ViewADD } from './styles'
+import { Container, View, TitleValue, Value, ViewADD } from './styles'
 
 export const Sales = ({ navigation }: any) => {
   const [addItems, setAddItems] = useState(true)
@@ -22,7 +20,7 @@ export const Sales = ({ navigation }: any) => {
   const [value, setChangeValue] = useState(0)
   const [listAddedProducts, setListAddedProducts] = useState<any[]>([])
   const totalItemValue = Number(quantity * value)
-  const clientName = []
+  const clientName: any[] = []
   CLIENT.map(item => clientName.push(item.name))
 
   React.useLayoutEffect(() => {
@@ -60,51 +58,46 @@ export const Sales = ({ navigation }: any) => {
 
   return (
     <Container>
-      <InputDropDown
-        title="cliente"
-        valueList={clientName}
-        setItemInclude={setClientInclude}
-      />
-      <TextInput
-        label="Cliente"
-        onChangeText={setClientInclude}
-        color="rgb(0, 172, 74)"
-        selectionColor="rgb(0, 172, 74)"
-      />
-      <TextInput
-        label="Produto"
-        onChangeText={setProductInclude}
-        color="rgb(0, 172, 74)"
-        selectionColor="rgb(0, 172, 74)"
-      />
       <View>
+        <InputDropDown
+          title="Cliente"
+          valueList={clientName}
+          setItemInclude={setClientInclude}
+        />
+        <InputDropDown
+          title="Produto"
+          valueList={PRODUCTS}
+          setItemInclude={setProductInclude}
+        />
+      </View>
+      <View style={{ zIndex: -1 }}>
         <TextInput
           label="Quantidade"
           onChangeText={onChangeQuantity}
           keyboardType="numeric"
           color="rgb(0, 172, 74)"
           selectionColor="rgb(0, 172, 74)"
-          style={{ width: 160 }}
+          style={{ width: 170 }}
         />
         <SelectDropDown
           item={UNIT_OF_MEASUREMENT}
           setItemInclude={setMedidaInclude}
         />
       </View>
-      <View>
+      <View style={{ zIndex: -1 }}>
         <TextInput
           label="Valor unitário (R$)"
           onChangeText={setChangeValue}
           keyboardType="numeric"
           color="rgb(0, 172, 74)"
           selectionColor="rgb(0, 172, 74)"
-          style={{ width: 160 }}
+          style={{ width: 170 }}
         />
-        <TitleValue style={{ width: 160 }}>
-          Total Item: $ {totalItemValue}
+        <TitleValue style={{ width: 170 }}>
+          Total Item: <Value>R$ {totalItemValue}</Value>
         </TitleValue>
       </View>
-      <ViewADD>
+      <ViewADD style={{ zIndex: -1 }}>
         <ButtonOnclick
           title=" + ADD ITEM"
           setChangeState={setAddItems}
@@ -112,10 +105,6 @@ export const Sales = ({ navigation }: any) => {
           functionValue={additem}
         />
       </ViewADD>
-
-      {/* {addItems && (
-        <Modall setModalVisible={setAddItems} modalVisible={addItems} />
-      )} */}
       <ItemProduct listAddedProducts={listAddedProducts} />
     </Container>
   )

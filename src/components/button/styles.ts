@@ -8,7 +8,7 @@ export const ButtonOn = styled.TouchableOpacity`
   justify-content: center;
   padding: 5px;
   height: 60px;
-  width: 150px;
+  width: 100%;
 `
 
 export const Text = styled.Text`

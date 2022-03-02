@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { MaterialIcons } from '@expo/vector-icons'
-import { TextInput } from '@react-native-material/core'
-import {
-  Container,
-  View,
-  Title,
-  InputList,
-  Preview,
-  ButtonPreview,
-  Text,
-} from './styles'
+import { TextInput, ListItem } from '@react-native-material/core'
+import { MotiView, MotiText, AnimatePresence } from 'moti'
+import { Container, Preview } from './styles'
 
 interface InputDropDownPros {
   title: string
@@ -44,27 +36,28 @@ export const InputDropDown = ({
   }, [searchText, selectedProduct])
 
   return (
-    <Container style={{ zIndex: 10 }}>
+    <Container>
       <TextInput
-        label="Cliente"
+        onFocus={() => setSelectedProduct(!selectedProduct)}
+        label={title}
         onChangeText={t => setSearchText(t)}
         value={searchText}
         color="rgb(0, 172, 74)"
         selectionColor="rgb(0, 172, 74)"
+        style={{ width: 170, zIndex: 10 }}
       />
-
-      {searchText !== '' && (
-        <Preview style={{ zIndex: 20 }}>
+      {selectedProduct && (
+        <Preview>
           {resultsFound?.map(name => (
-            <ButtonPreview
+            <ListItem
               onPress={() => {
-                setSelectedProduct(!selectedProduct)
+                setSelectedProduct(false)
                 setItemInclude(name)
                 setSearchText(name)
-                // navigation.navigate('Detalhes', { functionaryGroup })
-              }}>
-              <Text> {name}</Text>
-            </ButtonPreview>
+              }}
+              title={name}
+              pressEffectColor="green"
+            />
           ))}
         </Preview>
       )}

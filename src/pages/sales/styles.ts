@@ -6,8 +6,8 @@ export const Container = styled.ScrollView`
 
 export const View = styled.View`
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 `
 
 export const ViewADD = styled.View`
@@ -22,4 +22,11 @@ export const Title = styled.Text`
   font-weight: 700;
 `
 
-export const TitleValue = styled(Title)``
+export const TitleValue = styled.Text`
+  font-size: 16px;
+  width: 170;
+`
+
+export const Value = styled.Text`
+  font-weight: 700;
+`

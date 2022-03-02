@@ -8,12 +8,14 @@ interface SelectProps {
   item: any
   setItemInclude: any
   setSelectedItem?: any
+  title?: string
 }
 
 export const SelectDropDown = ({
   item,
   setItemInclude,
   setSelectedItem,
+  title,
 }: SelectProps) => {
   return (
     <Container>
@@ -26,7 +28,7 @@ export const SelectDropDown = ({
           setItemInclude(ItemSelected)
           item[0] === 'Draga' && setSelectedItem(ItemSelected)
         }}
-        defaultButtonText={'Selecione '}
+        defaultButtonText={`${title ? title : 'Selecione'}`}
         buttonTextAfterSelection={(selectedItem, index) => {
           return selectedItem
         }}

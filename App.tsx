@@ -12,7 +12,8 @@ export default function App() {
   const scheme = '' //'dark'
   return (
     <SafeAreaView style={styles.container}>
-      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <NavigationContainer>
+        {/*theme={scheme === 'dark' ? DarkTheme : DefaultTheme} */}
         <Router />
         {/* <StatusBar /> */}
       </NavigationContainer>

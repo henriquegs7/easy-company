@@ -13,6 +13,12 @@ import {
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
+type TabIconType = {
+  focused: boolean
+  color: string
+  size: number
+}
+
 export const Router = () => {
   return (
     <Navigator
@@ -34,7 +40,7 @@ export const Router = () => {
         name="Funcionários"
         component={FunctionaryRouter}
         options={{
-          tabBarIcon: ({ color, size }: any) => {
+          tabBarIcon: ({ color, size }: TabIconType) => {
             return <Entypo name="v-card" size={size} color={color} />
           },
           tabBarBadge: 5,
@@ -44,7 +50,7 @@ export const Router = () => {
         name="Clientes"
         component={ClientRouter}
         options={{
-          tabBarIcon: ({ color, size }: any) => {
+          tabBarIcon: ({ color, size }: TabIconType) => {
             return <Feather name="users" size={size} color={color} />
           },
         }}
@@ -54,7 +60,7 @@ export const Router = () => {
         component={HomeRouter}
         options={() => ({
           tabBarLabel: '',
-          tabBarIcon: ({ size }: any) => (
+          tabBarIcon: ({ size }: TabIconType) => (
             <View>
               <LinearGradient
                 style={styles.iconTabRound}
@@ -71,7 +77,7 @@ export const Router = () => {
         name="Produtos"
         component={ProductsRouter}
         options={{
-          tabBarIcon: ({ color, size }: any) => {
+          tabBarIcon: ({ color, size }: TabIconType) => {
             return <Feather name="package" size={size} color={color} />
           },
         }}
@@ -80,7 +86,7 @@ export const Router = () => {
         name="Fornecedor"
         component={ProviderRouter}
         options={{
-          tabBarIcon: ({ color, size }: any) => {
+          tabBarIcon: ({ color, size }: TabIconType) => {
             return <Feather name="truck" size={size} color={color} />
           },
         }}
