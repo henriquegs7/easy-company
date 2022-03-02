@@ -16,3 +16,7 @@ installs..
 - yarn add expo-linear-gradient
 - yarn add @react-navigation/material-top-tabs react-native-tab-view
 - expo install react-native-pager-view
+- yarn add react-native-drop-down-item --save
+- yarn add react-native-dropdown-autocomplete-textinput --save
+- yarn add moti
+- yarn add hermes-engine@v0.5.2-rc1

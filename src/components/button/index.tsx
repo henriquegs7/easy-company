@@ -5,16 +5,19 @@ interface ButtonPros {
   title: string
   setChangeState: (status: boolean) => void
   status: boolean
+  functionValue: () => void
 }
 
 export const ButtonOnclick = ({
   title,
   setChangeState,
   status,
+  functionValue,
 }: ButtonPros) => {
   return (
     <ButtonOn
       onPress={() => {
+        functionValue()
         setChangeState(!status)
       }}>
       <Text>{title}</Text>

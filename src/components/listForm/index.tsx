@@ -4,19 +4,27 @@ import { Container, Text, TextInput } from './styles'
 //TODO: retirar os any e por a prop correta
 interface ListPros {
   title: string
+  onChangeValue?: any
   status: boolean
-  value: string | any
+  placeholder: string | any
   type?: string | any
 }
 
-export const ListForm = ({ title, status, value, type }: ListPros) => {
+export const ListForm = ({
+  title,
+  onChangeValue,
+  status,
+  placeholder,
+  type,
+}: ListPros) => {
   return (
     <Container>
       <Text>{title}: </Text>
       <TextInput
+        onChangeText={onChangeValue}
         editable={status}
-        placeholder={value}
-        placeholderTextColor={`${status ? '#ffffff6f' : 'white'}`}
+        placeholder={placeholder}
+        placeholderTextColor={`${status ? '#807c7c6e' : 'black'}`}
         keyboardType={type}
       />
     </Container>

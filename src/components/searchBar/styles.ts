@@ -16,10 +16,3 @@ export const TextInput = styled.TextInput`
   height: 35px;
   padding: 0 15px;
 `
-
-export const OrderButton = styled.TouchableOpacity`
-  align-items: center;
-  height: 35px;
-  justify-content: center;
-  margin-left: 10px;
-`

@@ -1,21 +1,20 @@
 import styled from 'styled-components/native'
 
 export const Container = styled.View`
-  align-items: center;
   flex-direction: row;
-  margin-bottom: 5px;
-  width: 100%;
+  align-items: center;
 `
 
 export const Text = styled.Text`
-  color: white;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
 `
 
 export const TextInput = styled.TextInput`
-  color: white;
   font-size: 14px;
   margin-left: 5px;
-  width: 80%;
+  min-width: 100px;
+  min-height: 30px;
+  padding: 0 5px;
+  border-radius: 10px;
 `

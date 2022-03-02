@@ -4,7 +4,7 @@ export const Container = styled.View`
   align-items: center;
   flex: 1;
   justify-content: center;
-  margin-top: 22px;
+  background-color: rgba(0, 0, 0, 0.5);
 `
 
 export const ModalView = styled.View`
@@ -41,18 +41,10 @@ export const ModalView = styled.View`
 //   },
 // });
 
-export const Button = styled.Pressable`
+export const ButtonClose = styled.Pressable`
   border-radius: 20px;
-  elevation: 2;
   padding: 10px;
-`
-
-export const ButtonOpen = styled(Button)`
-  background-color: #f194ff;
-`
-
-export const ButtonClose = styled(Button)`
-  background-color: #2196f3;
+  background-color: rgb(0, 172, 74);
 `
 
 export const TextStyle = styled.Text`
@@ -62,6 +54,7 @@ export const TextStyle = styled.Text`
 `
 
 export const ModalText = styled.Text`
-  margin-bottom: 15px;
+  margin-bottom: 16px;
+  font-weight: 500;
   text-align: center;
 `

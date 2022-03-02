@@ -1,10 +1,11 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native'
 
 export const Container = styled.View`
-  align-items: center;
-  justify-content: center;
-`;
+  padding: 10px 15px;
+`
 
 export const Title = styled.Text`
-  align-items: center;
-`;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+`

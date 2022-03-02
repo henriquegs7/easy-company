@@ -14,9 +14,10 @@ import {
 
 interface HomePros {
   name: string
+  navigation: any
 }
 
-export const Home = ({ name }: HomePros) => {
+export const Home = ({ navigation, name }: HomePros) => {
   return (
     <Container>
       <Header>
@@ -29,7 +30,10 @@ export const Home = ({ name }: HomePros) => {
           <PhotoUser iten={''} />
           <Title>Olá, Henrique {name}</Title>
         </View>
-        <ButtonSales onPress={() => {}}>
+        <ButtonSales
+          onPress={() => {
+            navigation.navigate('Inicio da venda')
+          }}>
           <MaterialIcons name="add-shopping-cart" size={28} color="#FFF" />
         </ButtonSales>
       </Header>

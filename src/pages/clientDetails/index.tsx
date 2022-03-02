@@ -53,24 +53,24 @@ export const ClientDetails = ({ navigation, route }: any) => {
           <ListForm
             title="Motorista"
             status={edit}
-            value={vehicles.motorista}
+            placeholder={vehicles.motorista}
           />
-          <ListForm title="Placa" status={edit} value={vehicles.placa} />
+          <ListForm title="Placa" status={edit} placeholder={vehicles.placa} />
           <ListForm
             title="Município"
             status={edit}
-            value={vehicles.municipio}
+            placeholder={vehicles.municipio}
           />
           <ListForm
             title="Peso bruto"
             status={edit}
-            value={vehicles.pesoBruto}
+            placeholder={vehicles.pesoBruto}
             type="numeric"
           />
           <ListForm
             title="Peso liquido"
             status={edit}
-            value={vehicles.pesoLiquido}
+            placeholder={vehicles.pesoLiquido}
             type="numeric"
           />
         </VehicleItems>
@@ -92,21 +92,25 @@ export const ClientDetails = ({ navigation, route }: any) => {
           <PhotoUser iten="" />
         </ContainerPhoto>
         <InfoText>
-          <ListForm title="Nome" status={edit} value={client.nome} />
+          <ListForm title="Nome" status={edit} placeholder={client.name} />
           <ListForm
             title="Data de Nascimento"
             status={edit}
-            value={client.dataNascimento}
+            placeholder={client.dataNascimento}
             type="numeric"
           />
           <ListForm
             title="Celular"
             status={edit}
-            value={client.celular}
+            placeholder={client.celular}
             type="numeric"
           />
-          <ListForm title="Email" status={edit} value={client.email} />
-          <ListForm title="Endereço" status={edit} value={client.endereço} />
+          <ListForm title="Email" status={edit} placeholder={client.email} />
+          <ListForm
+            title="Endereço"
+            status={edit}
+            placeholder={client.endereço}
+          />
         </InfoText>
       </UserInformation>
       <Navigator

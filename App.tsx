@@ -1,6 +1,5 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, StatusBar } from 'react-native'
-// import { NavigationContainer } from '@react-navigation/native'
 import {
   NavigationContainer,
   DefaultTheme,
@@ -10,12 +9,13 @@ import {
 import { Router } from './src/router'
 
 export default function App() {
-  const scheme = 'dark'
+  const scheme = '' //'dark'
   return (
     <SafeAreaView style={styles.container}>
-      <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <NavigationContainer>
+        {/*theme={scheme === 'dark' ? DarkTheme : DefaultTheme} */}
         <Router />
-        <StatusBar />
+        {/* <StatusBar /> */}
       </NavigationContainer>
     </SafeAreaView>
   )

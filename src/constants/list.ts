@@ -1,7 +1,7 @@
-export const COSTOMER = [
+export const CLIENT = [
   {
     id: '1',
-    nome: 'alemao',
+    name: 'alemao',
     dataNascimento: '10/02/1980',
     celular: '(51) 97654-5678',
     email: 'alemao@gmail.com',
@@ -25,7 +25,7 @@ export const COSTOMER = [
   },
   {
     id: '2',
-    nome: 'javilsom',
+    name: 'javilsom',
     dataNascimento: '10/02/1980',
     celular: '(51) 97654-5678',
     email: 'javilsom@gmail.com',
@@ -42,7 +42,7 @@ export const COSTOMER = [
   },
   {
     id: '3',
-    nome: 'tom mastubando',
+    name: 'tom mastubando',
     dataNascimento: '10/02/1980',
     celular: '(51) 97654-5678',
     email: 'tommastubando@gmail.com',
@@ -59,30 +59,30 @@ export const COSTOMER = [
   },
   {
     id: '4',
-    nome: 'geraldo',
+    name: 'geraldo',
     dataNascimento: '10/02/1980',
     celular: '(51) 97654-5678',
     email: 'geraldo@gmail.com',
   },
   {
     id: '5',
-    nome: 'katrillsom',
+    name: 'katrillsom',
   },
   {
     id: '6',
-    nome: 'deide costa',
+    name: 'deide costa',
   },
   {
     id: '7',
-    nome: 'nirildo',
+    name: 'nirildo',
   },
   {
     id: '8',
-    nome: 'jabildo',
+    name: 'jabildo',
   },
   {
     id: '9',
-    nome: 'tomi rola',
+    name: 'tomi rola',
   },
 ]
 
@@ -90,7 +90,14 @@ export const FUNCTIONARY_GROUP = [
   {
     id: '1',
     name: 'Pedreira',
-    functionary: ['alemao', 'tom mastubando'],
+    functionary: [
+      'alemao',
+      'tom mastubando',
+      'Luciano',
+      'tom',
+      'Luciano',
+      'tom',
+    ],
   },
   {
     id: '2',
@@ -107,4 +114,22 @@ export const FUNCTIONARY_GROUP = [
     name: 'Marcio (pedreira)',
     functionary: ['carlos', 'edson'],
   },
+]
+
+export const PRODUCTS = [
+  'Areia média',
+  'Areia fina',
+  'Pedra fina',
+  'Pedra média',
+  'Pedra grossa',
+  'Laje normal',
+  'Lajao',
+  'Laje grossa',
+  'Tijoleta normal',
+  'Tijoleta serrada',
+  'Saibro',
+  'BobCat',
+  'Caçamba',
+  'PC',
+  'Retro-escavadeira',
 ]
