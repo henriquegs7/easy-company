@@ -13,14 +13,6 @@ export const ModalView = styled.View`
   border-radius: 20px;
   margin: 20px;
   padding: 35px;
-  /* box-shadow: #000;
-  shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4, */
-  elevation: 5;
 `
 
 // const styles = StyleSheet.create({

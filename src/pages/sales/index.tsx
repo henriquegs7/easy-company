@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from 'react-native'
 import { TextInput, Surface } from '@react-native-material/core'
+import { AutocompleteDropdown } from 'react-native-autocomplete-dropdown'
 import {
   SelectDropDown,
   ButtonOnclick,
   InputDropDown,
   ItemProduct,
 } from '../../components'
-import { CLIENT, PRODUCTS, UNIT_OF_MEASUREMENT } from '../../constants'
+import {
+  CLIENT,
+  PRODUCTS,
+  UNIT_OF_MEASUREMENT,
+  CLIENT_Teste,
+} from '../../constants'
 import { Container, View, TitleValue, Value, ViewADD } from './styles'
 
 export const Sales = ({ navigation }: any) => {
+  const [selectedItem, setSelectedItem] = useState(null)
   const [addItems, setAddItems] = useState(true)
   const [enableNextPage, setEnableNextPage] = useState(true)
   const [clientInclude, setClientInclude] = useState('')
@@ -57,20 +64,44 @@ export const Sales = ({ navigation }: any) => {
   }
 
   return (
-    <Container>
-      <View>
+    <Container style={{ position: 'absolute' }}>
+      <View style={{ elevation: 2 }}>
+        <AutocompleteDropdown
+          clearOnFocus={false}
+          closeOnBlur={true}
+          closeOnSubmit={false}
+          textInputProps={{
+            placeholder: 'Cliente',
+            placeholderColor: '#000',
+            style: {
+              backgroundColor: '#cecece',
+              color: '#fff',
+              width: 170,
+            },
+          }}
+          rightButtonsContainerStyle={{
+            backgroundColor: 'transparent',
+          }}
+          suggestionsListContainerStyle={{
+            backgroundColor: '#cecece',
+            shadowColor: '#000',
+          }}
+          onSelectItem={setClientInclude}
+          dataSet={CLIENT_Teste}
+        />
+
         <InputDropDown
           title="Cliente"
           valueList={clientName}
           setItemInclude={setClientInclude}
         />
-        <InputDropDown
+        {/* <InputDropDown
           title="Produto"
           valueList={PRODUCTS}
           setItemInclude={setProductInclude}
-        />
+        /> */}
       </View>
-      <View style={{ zIndex: -1 }}>
+      <View>
         <TextInput
           label="Quantidade"
           onChangeText={onChangeQuantity}
@@ -84,7 +115,7 @@ export const Sales = ({ navigation }: any) => {
           setItemInclude={setMedidaInclude}
         />
       </View>
-      <View style={{ zIndex: -1 }}>
+      <View>
         <TextInput
           label="Valor unitário (R$)"
           onChangeText={setChangeValue}
@@ -97,7 +128,7 @@ export const Sales = ({ navigation }: any) => {
           Total Item: <Value>R$ {totalItemValue}</Value>
         </TitleValue>
       </View>
-      <ViewADD style={{ zIndex: -1 }}>
+      <ViewADD>
         <ButtonOnclick
           title=" + ADD ITEM"
           setChangeState={setAddItems}

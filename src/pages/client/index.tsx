@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import { Button, TouchableOpacity } from 'react-native'
+import React, { useLayoutEffect, useState } from 'react'
+import { TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import { ListItem, Avatar } from '@react-native-material/core'
-import { PhotoUser, SearchBar } from '../../components'
-import { CLIENT } from '../../constants'
+import { SearchBar } from '@components'
+import { CLIENT } from '@constants'
 import { Container, FlatList } from './styles'
 
 export const Client = ({ navigation }: any) => {
   const [list, setList] = useState({})
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
         <TouchableOpacity
@@ -31,7 +31,9 @@ export const Client = ({ navigation }: any) => {
         }}
         leading={
           <Avatar
-            image={{ uri: 'https://mui.com/static/images/avatar/3.jpg' }}
+            label={client.name}
+            color="rgb(0, 172, 74)"
+            tintColor="white"
           />
         }
         title={client.name}
