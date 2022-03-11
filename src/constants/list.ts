@@ -118,61 +118,61 @@ export const FUNCTIONARY_GROUP = [
 
 export const PRODUCTS = [
   {
-    id: '1',
-    title: 'Areia média',
+    id: 1,
+    name: 'Areia média',
   },
   {
-    id: '2',
-    title: 'Areia fina',
+    id: 2,
+    name: 'Areia fina',
   },
   {
-    id: '3',
-    title: 'Pedra fina',
+    id: 3,
+    name: 'Pedra fina',
   },
   {
-    id: '4',
-    title: 'Pedra média',
+    id: 4,
+    name: 'Pedra média',
   },
   {
-    id: '5',
-    title: 'Pedra grossa',
+    id: 5,
+    name: 'Pedra grossa',
   },
   {
-    id: '6',
-    title: 'Laje normal',
+    id: 6,
+    name: 'Laje normal',
   },
   {
-    id: '7',
-    title: 'Lajao',
+    id: 7,
+    name: 'Lajao',
   },
   {
-    id: '8',
-    title: 'Tijoleta normal',
+    id: 8,
+    name: 'Tijoleta normal',
   },
   {
-    id: '9',
-    title: 'Tijoleta serrada',
+    id: 9,
+    name: 'Tijoleta serrada',
   },
   {
-    id: '10',
-    title: 'Saibro',
+    id: 10,
+    name: 'Saibro',
   },
   {
-    id: '11',
-    title: 'BobCat',
+    id: 11,
+    name: 'BobCat',
   },
 
   {
-    id: '12',
-    title: 'Caçamba',
+    id: 12,
+    name: 'Caçamba',
   },
   {
-    id: '13',
-    title: 'PC',
+    id: 13,
+    name: 'PC',
   },
   {
-    id: '14',
-    title: 'Retro-escavadeira',
+    id: 14,
+    name: 'Retro-escavadeira',
   },
 ]
 

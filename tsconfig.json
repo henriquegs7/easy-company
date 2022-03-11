@@ -46,6 +46,7 @@
       "@pages": ["./src/pages/index.ts"],
       "@services": ["./src/services/index.ts"],
       "@utils": ["./src/utils/index.ts"],
+      "@redux": ["./src/redux/index.ts"],
       "@router": ["./src/router.tsx"],
     },                                        /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */

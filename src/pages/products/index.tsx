@@ -1,5 +1,7 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react'
+import { ListRenderItemInfo, TouchableOpacity } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
 import {
   Avatar,
@@ -13,20 +15,35 @@ import {
   DialogActions,
   TextInput,
 } from '@react-native-material/core'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeProduct } from '@redux'
 import { SearchBar } from '@components'
 import { PRODUCTS } from '@constants'
 import { Container, FlatList, AddProduct } from './styles'
-import { TouchableOpacity } from 'react-native'
 
-interface ProductsPros {
+interface ProductType {
   id: number
-  title: string
+  name: string
 }
 
 export const Products = ({ navigation }: any) => {
   const [visible, setVisible] = useState(false)
   const [productAdd, setProductAdd] = useState('')
-  const [list, setList] = useState({})
+  const [listProduct, setListProduct] = useState<ProductType[]>([])
+  const dispatch = useDispatch()
+  const state = useSelector(state => state)
+  console.log(state)
+
+  useEffect(() => {
+    const saveNewProduct = async newProduct => {
+      try {
+        await AsyncStorage.setItem('product', JSON.stringify(newProduct))
+      } catch (error) {
+        console.log('FUDEU, DEU ERRO NESSA MERDA!')
+      }
+    }
+    saveNewProduct(listProduct)
+  }, [listProduct])
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -42,12 +59,14 @@ export const Products = ({ navigation }: any) => {
     })
   }, [navigation])
 
-  useEffect(() => {}, [PRODUCTS])
-
-  const rightSwipeActions = product => {
+  const rightSwipeActions = (product: ProductType) => {
     return (
       <TouchableOpacity
-        onPress={() => PRODUCTS.slice(product.id)}
+        onPress={() =>
+          setListProduct(
+            listProduct.filter(productList => productList.id !== product.id),
+          )
+        }
         style={{
           backgroundColor: '#fc6b60',
           justifyContent: 'center',
@@ -59,21 +78,24 @@ export const Products = ({ navigation }: any) => {
     )
   }
 
-  const handleProduct = ({ item: product }: any) => {
+  const handleProduct = ({
+    item: product,
+    index,
+  }: ListRenderItemInfo<ProductType>) => {
     return (
       <Swipeable renderRightActions={() => rightSwipeActions(product)}>
         <ListItem
           leadingMode="avatar"
           leading={
             <Avatar
-              label={product.title}
+              label={product.name}
               color="rgb(0, 172, 74)"
               tintColor="white"
               size={50}
             />
           }
-          title={product.title}
-          secondaryText={`Item ${product.id}`}
+          title={product.name}
+          secondaryText={`Item ${index + 1}`}
         />
       </Swipeable>
     )
@@ -82,12 +104,12 @@ export const Products = ({ navigation }: any) => {
   return (
     <Container>
       <SearchBar
-        setResultsFound={setList}
+        setResultsFound={setListProduct}
         valueList={PRODUCTS}
         title="Pesquise um cliente"
       />
       <FlatList
-        data={PRODUCTS}
+        data={listProduct}
         renderItem={handleProduct}
         keyExtractor={item => item.id}
       />
@@ -95,15 +117,15 @@ export const Products = ({ navigation }: any) => {
         <Dialog visible={visible} onDismiss={() => setVisible(false)}>
           <DialogHeader title="Novo produto" />
           <DialogContent>
-            <Stack spacing={2}>
-              <TextInput
-                label="Nome do Produto"
-                variant="standard"
-                onChangeText={setProductAdd}
-                color="rgb(0, 172, 74)"
-                selectionColor="rgb(0, 172, 74)"
-              />
-            </Stack>
+            {/* <Stack spacing={2}> */}
+            <TextInput
+              label="Nome do Produto"
+              variant="standard"
+              onChangeText={setProductAdd}
+              color="rgb(0, 172, 74)"
+              selectionColor="rgb(0, 172, 74)"
+            />
+            {/* </Stack> */}
           </DialogContent>
           <DialogActions>
             <Button
@@ -115,8 +137,16 @@ export const Products = ({ navigation }: any) => {
             <Button
               title="Ok"
               onPress={() => {
-                PRODUCTS.push({ id: PRODUCTS.length, title: productAdd })
-                setVisible(false)
+                try {
+                  listProduct.push({
+                    id: listProduct.length,
+                    name: productAdd,
+                  })
+                  dispatch(changeProduct(productAdd))
+                  setVisible(false)
+                } catch (error) {
+                  console.log('deu erro')
+                }
               }}
               color="rgb(0, 172, 74)"
               tintColor="#FFF"

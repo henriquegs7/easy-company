@@ -15,6 +15,7 @@ module.exports = {
           '@pages': './src/pages',
           '@services': './src/services',
           '@utils': './src/utils',
+          '@redux': './src/redux',
           '@router': './src',
         },
       },

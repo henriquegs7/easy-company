@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Container, TextInput } from './styles'
 
 //TODO: retirar os any e por a prop correta
+
+interface ProductType {
+  id: number
+  name: string
+}
+
 interface SearchBarPros {
-  setResultsFound: (a: object[]) => void
-  valueList: { name: string }[]
+  setResultsFound: Dispatch<SetStateAction<ProductType[]>>
+  valueList: ProductType[]
   title: string
 }
 
