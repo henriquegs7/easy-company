@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from 'react-native'
+import { Button, Platform } from 'react-native'
 import { TextInput, Surface } from '@react-native-material/core'
 import { AutocompleteDropdown } from 'react-native-autocomplete-dropdown'
 import {
@@ -65,31 +65,11 @@ export const Sales = ({ navigation }: any) => {
 
   return (
     <Container style={{ position: 'absolute' }}>
-      <View style={{ elevation: 2 }}>
-        <AutocompleteDropdown
-          clearOnFocus={false}
-          closeOnBlur={true}
-          closeOnSubmit={false}
-          textInputProps={{
-            placeholder: 'Cliente',
-            placeholderColor: '#000',
-            style: {
-              backgroundColor: '#cecece',
-              color: '#fff',
-              width: 170,
-            },
-          }}
-          rightButtonsContainerStyle={{
-            backgroundColor: 'transparent',
-          }}
-          suggestionsListContainerStyle={{
-            backgroundColor: '#cecece',
-            shadowColor: '#000',
-          }}
-          onSelectItem={setClientInclude}
-          dataSet={CLIENT_Teste}
-        />
-
+      <View
+        style={Platform.select({
+          ios: { zIndex: 100 },
+          android: { zIndex: 100 },
+        })}>
         <InputDropDown
           title="Cliente"
           valueList={clientName}

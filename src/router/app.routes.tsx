@@ -9,7 +9,7 @@ import {
   HomeRouter,
   ProductsRouter,
   ProviderRouter,
-} from './index'
+} from './appRoutes/index'
 
 const { Navigator, Screen } = createBottomTabNavigator()
 
@@ -19,7 +19,7 @@ type TabIconType = {
   size: number
 }
 
-export const Router = () => {
+export const AppRoutes = () => {
   return (
     <Navigator
       initialRouteName="Home"

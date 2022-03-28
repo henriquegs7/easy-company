@@ -1,6 +1,0 @@
-export { ClientRouter } from './client.router'
-export { FunctionaryRouter } from './functionary.router'
-export { HomeRouter } from './home.router'
-export { ProductsRouter } from './products.router'
-export { ProviderRouter } from './provider.router'
-export { Router } from './router'

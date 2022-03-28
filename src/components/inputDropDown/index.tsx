@@ -8,6 +8,7 @@ import {
   ButtonList,
   Button,
 } from './styles'
+import { Platform } from 'react-native'
 
 interface InputDropDownPros {
   title: string
@@ -80,7 +81,11 @@ export const InputDropDown = ({
         }
       />
       {hasFocus && (
-        <Preview>
+        <Preview
+          style={Platform.select({
+            ios: { zIndex: 100 },
+            android: { zIndex: 100 },
+          })}>
           {resultsFound[0] ? (
             resultsFound?.map(name => (
               <ListItem

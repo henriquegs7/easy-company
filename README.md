@@ -21,3 +21,6 @@ installs..
 - yarn add moti
 - yarn add hermes-engine@v0.5.2-rc1
 - yarn add @reduxjs/toolkit react-redux
+- expo install firebase@9.1.0
+- expo install @react-native-async-storage/async-storage
+- expo install firebase

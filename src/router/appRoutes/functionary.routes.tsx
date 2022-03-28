@@ -1,6 +1,6 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Functionary, ClientDetails } from '../pages'
+import { Functionary, ClientDetails } from '../../pages'
 
 export const FunctionaryRouter = () => {
   const { Navigator, Screen } = createNativeStackNavigator()

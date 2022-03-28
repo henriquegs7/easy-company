@@ -1,7 +1,6 @@
-import React, { useState, useLayoutEffect, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import { ListRenderItemInfo, TouchableOpacity } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
 import {
   Avatar,
@@ -15,8 +14,6 @@ import {
   DialogActions,
   TextInput,
 } from '@react-native-material/core'
-import { useDispatch, useSelector } from 'react-redux'
-import { changeProduct } from '@redux'
 import { SearchBar } from '@components'
 import { PRODUCTS } from '@constants'
 import { Container, FlatList, AddProduct } from './styles'
@@ -30,20 +27,6 @@ export const Products = ({ navigation }: any) => {
   const [visible, setVisible] = useState(false)
   const [productAdd, setProductAdd] = useState('')
   const [listProduct, setListProduct] = useState<ProductType[]>([])
-  const dispatch = useDispatch()
-  const state = useSelector(state => state)
-  console.log(state)
-
-  useEffect(() => {
-    const saveNewProduct = async newProduct => {
-      try {
-        await AsyncStorage.setItem('product', JSON.stringify(newProduct))
-      } catch (error) {
-        console.log('FUDEU, DEU ERRO NESSA MERDA!')
-      }
-    }
-    saveNewProduct(listProduct)
-  }, [listProduct])
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -142,7 +125,6 @@ export const Products = ({ navigation }: any) => {
                     id: listProduct.length,
                     name: productAdd,
                   })
-                  dispatch(changeProduct(productAdd))
                   setVisible(false)
                 } catch (error) {
                   console.log('deu erro')

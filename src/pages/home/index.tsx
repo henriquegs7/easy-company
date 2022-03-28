@@ -43,10 +43,8 @@ export const Home = ({ navigation, name }: HomePros) => {
             </ButtonSales>
           </Header>
           <SalesMade>
-            <Text style={{ fontSize: 16, color: 'white' }}>
-              Vendas da Semana
-            </Text>
-            <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>
+            <Text style={{ color: 'white' }}>Vendas da Semana</Text>
+            <Text style={{ color: 'white', fontWeight: 'bold' }}>
               R$ 10.000,00
             </Text>
           </SalesMade>

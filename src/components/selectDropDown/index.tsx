@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     borderColor: '#444',
   },
-  dropdown1BtnTxtStyle: { color: '#444', textAlign: 'left', fontSize: 16 },
+  dropdown1BtnTxtStyle: { color: '#444', textAlign: 'left' },
   dropdown1DropdownStyle: {
     backgroundColor: '#000',
     borderRadius: 10,
@@ -77,5 +77,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderBottomColor: '#C5C5C5',
   },
-  dropdown1RowTxtStyle: { color: '#444', textAlign: 'left', fontSize: 16 },
+  dropdown1RowTxtStyle: { color: '#444', textAlign: 'left' },
 })

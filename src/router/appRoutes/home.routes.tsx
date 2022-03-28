@@ -1,6 +1,6 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Home, Sales, SalesEnd } from '../pages'
+import { Home, Sales, SalesEnd } from '../../pages'
 
 export const HomeRouter = () => {
   const { Navigator, Screen } = createNativeStackNavigator()
