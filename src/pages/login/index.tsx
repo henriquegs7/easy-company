@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Platform } from 'react-native'
 import { useDispatch } from 'react-redux'
 import {
   getAuth,
   signInWithEmailAndPassword,
-  GoogleAuthProvider,
   FacebookAuthProvider,
   signInWithCredential,
+  GoogleAuthProvider,
 } from 'firebase/auth'
 import { TextInput } from '@react-native-material/core'
 import * as Facebook from 'expo-facebook'
@@ -33,6 +33,7 @@ import {
   ButtonsContainer,
   LoginWith,
 } from './styles'
+import * as Google from 'expo-auth-session/providers/google'
 
 export const Login = ({ navigation }: any) => {
   const [email, setEmail] = useState('')
@@ -44,6 +45,23 @@ export const Login = ({ navigation }: any) => {
   )
   const auth = getAuth(app)
   const dispatch = useDispatch()
+
+  const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
+    //TODO: fix this key to real one and setting up the SHA fingerprint
+    clientId:
+      'com.googleusercontent.apps.663279025904-j909s6m6l011qgcl7gpcs8etfut3lust',
+  })
+
+  useEffect(() => {
+    console.log('RESPONSE')
+    if (response?.type === 'success') {
+      const { id_token } = response.params
+
+      const auth = getAuth()
+      const credential = GoogleAuthProvider.credential(id_token)
+      signInWithCredential(auth, credential)
+    }
+  }, [response])
 
   const loginFirebase = async () => {
     try {
@@ -79,7 +97,7 @@ export const Login = ({ navigation }: any) => {
 
   const loginGoogle = async () => {
     try {
-      const user = await GoogleSignin.signIn()
+      // const user = await GoogleSignin.signIn()
       // console.log(user)/
       // if (type === 'success') {
       //   const credential = GoogleAuthProvider.credential(token)
@@ -157,7 +175,11 @@ export const Login = ({ navigation }: any) => {
           onPress={loginFacebook}>
           <FontAwesome name="facebook-square" size={24} color="white" />
         </LoginWith>
-        <LoginWith style={{ backgroundColor: '#db4a39' }} onPress={loginGoogle}>
+        <LoginWith
+          style={{ backgroundColor: '#db4a39' }}
+          onPress={() => {
+            promptAsync()
+          }}>
           <AntDesign name="googleplus" size={24} color="white" />
         </LoginWith>
       </ButtonsContainer>
