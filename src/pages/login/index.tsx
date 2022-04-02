@@ -68,6 +68,7 @@ export const Login = ({ navigation }: any) => {
       if (type === 'success') {
         const credential = FacebookAuthProvider.credential(token)
         const response = await signInWithCredential(auth, credential)
+
         dispatch(changeUser(response.user))
         setErrorLogin(false)
       }
@@ -79,7 +80,7 @@ export const Login = ({ navigation }: any) => {
 
   const loginGoogle = async () => {
     try {
-      const user = await GoogleSignin.signIn()
+      // const user = await GoogleSignin.signIn()
       // console.log(user)/
       // if (type === 'success') {
       //   const credential = GoogleAuthProvider.credential(token)

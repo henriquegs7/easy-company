@@ -4,17 +4,15 @@ import { User } from 'firebase/auth'
 export const slice = createSlice({
   name: 'user',
   initialState: {
-    user: {} as User,
+    user: '',
     isLogged: false,
   },
   reducers: {
     changeUser(state, { payload }) {
-      state.isLogged = true
-      state.user = payload.user
+      return { ...state, isLogged: true, user: payload }
     },
     logout(state) {
-      state.isLogged = false
-      state.user = {} as any
+      return { ...state, isLogged: false, user: '' }
     },
   },
 })

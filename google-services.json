@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "663279025904",
+    "project_id": "easycompanpy",
+    "storage_bucket": "easycompanpy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663279025904:android:09659ba289226e15bc0c35",
+        "android_client_info": {
+          "package_name": "com.henriquegs7.easycompany"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663279025904-bp7sfv874pr0kh7qvbg3s131q2rqt6o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD41o6iuW_tWYfj0_jchvzAYzk-B9QJ5To"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663279025904-bp7sfv874pr0kh7qvbg3s131q2rqt6o1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "663279025904-j909s6m6l011qgcl7gpcs8etfut3lust.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "host.exp.exponent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

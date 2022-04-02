@@ -23,10 +23,13 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.henriquegs7.easycompany",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.henriquegs7.easycompany"
     },
     "web": {
       "favicon": "./assets/favicon.png"

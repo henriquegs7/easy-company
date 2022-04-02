@@ -6,7 +6,7 @@ import {
   Avatar,
 } from '@react-native-material/core'
 import { MaterialIcons } from '@expo/vector-icons'
-import { PhotoUser } from '@components'
+import { useSelector } from 'react-redux'
 import {
   Container,
   Header,
@@ -15,6 +15,7 @@ import {
   Title,
   ButtonSales,
 } from './styles'
+import { RootState } from '../../config/redux/store'
 
 interface HomePros {
   name: string
@@ -22,6 +23,9 @@ interface HomePros {
 }
 
 export const Home = ({ navigation, name }: HomePros) => {
+  const { user } = useSelector((state: RootState) => state.user)
+  console.log(user)
+
   return (
     <Backdrop
       revealed={true}
@@ -30,10 +34,8 @@ export const Home = ({ navigation, name }: HomePros) => {
         <Container>
           <Header>
             <TitleView>
-              <Avatar
-                image={{ uri: 'https://mui.com/static/images/avatar/1.jpg' }}
-              />
-              <Title>Olá, Henrique {name}</Title>
+              <Avatar image={{ uri: user.photoURL }} />
+              <Title>Olá, {user.displayName}</Title>
             </TitleView>
             <ButtonSales
               onPress={() => {
